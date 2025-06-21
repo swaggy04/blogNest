@@ -1,3 +1,4 @@
+
 import {
   AllArticlesPage,
 } from "@/components/article/all-blogpage";
@@ -15,8 +16,9 @@ export default async function Page({
 }: {
   searchParams?: { search?: string; page?: string };
 }) {
-  const searchText = searchParams?.search || "";
+  const searchText = searchParams?.search?.trim().toLowerCase() || "";
   const currentPage = Number(searchParams?.page) || 1;
+
   const skip = (currentPage - 1) * ITEMS_PER_PAGE;
   const take = ITEMS_PER_PAGE;
 
@@ -43,12 +45,14 @@ export default async function Page({
 
         {/* Pagination */}
         <div className="mt-12 flex justify-center gap-2">
+          {/* Prev */}
           <Link href={`?search=${searchText}&page=${currentPage - 1}`} passHref>
             <Button variant="ghost" size="sm" disabled={currentPage === 1}>
               ← Prev
             </Button>
           </Link>
 
+          {/* Page Numbers */}
           {Array.from({ length: totalPages }).map((_, index) => (
             <Link
               key={index}
@@ -65,6 +69,7 @@ export default async function Page({
             </Link>
           ))}
 
+          {/* Next */}
           <Link href={`?search=${searchText}&page=${currentPage + 1}`} passHref>
             <Button
               variant="ghost"
