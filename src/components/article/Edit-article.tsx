@@ -1,7 +1,4 @@
 "use client"
-
-import { Articles } from '@/generated/prisma'
-
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
@@ -9,6 +6,8 @@ import dynamic from 'next/dynamic'
 import { FormEvent, startTransition, useActionState, useState } from 'react'
 import 'react-quill-new/dist/quill.snow.css';
 import editArticle from '@/actions/edit-article'
+import { Articles } from '@prisma/client'
+import { Button } from '../ui/button'
 
 const ReactQuill = dynamic(() => import('react-quill-new'), {
   ssr: false
@@ -20,7 +19,7 @@ type EditArticleProps={
 
 
 const Editarticle: React.FC<EditArticleProps> = ({ article }) => {
-  const [title, setTitle] = useState("")
+  
   const [content, setContent] = useState(article.content)
   const [formState, action, isPending] = useActionState(editArticle.bind(null,article.id), {
     errors: {}
@@ -55,7 +54,7 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
                 name='title'
                 placeholder='Title of the article'
                 defaultValue={article.title}
-                onChange={(e) => setTitle(e.target.value)}
+               
               />
               {formState.errors.title && (
                 <span className='text-red-600 text-sm'>{formState.errors.title}</span>
@@ -114,23 +113,16 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 
             {/* Buttons */}
             <div className='flex justify-end gap-4'>
-              <button
+              <Button
                 disabled={isPending}
                 type='submit'
                 className='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600'
               >
                 {isPending ? 'Loading...' : 'Publish'}
-              </button>
-              <button
-                type='button'
-                onClick={() => {
-                  setTitle("")
-                  setContent("")
-                }}
-                className='bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600'
-              >
-                Cancel
-              </button>
+              </Button>
+               <Button type="button" variant="outline">
+                Discard Changes
+              </Button>
             </div>
           </form>
         </CardContent>

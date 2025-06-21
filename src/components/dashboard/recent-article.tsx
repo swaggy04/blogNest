@@ -3,10 +3,9 @@ import Link from "next/link"
 import { Button } from "../ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table"
-import { Prisma } from "@/generated/prisma"
-
 import React, { useTransition } from "react"
 import { deleteArticle } from "@/actions/delete-article"
+import { Prisma } from "@prisma/client"
 
 
 

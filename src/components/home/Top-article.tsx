@@ -2,7 +2,7 @@ import { prisma } from '@/lib/prisma'
 import Image from 'next/image'
 import ViewAllArticlesButton from '@/components/ViewAllArticlesButton'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { Prisma } from '@prisma/client'
+
 
 // // 1. Define the type for the articles with included relations
 // type ArticleWithAuthorAndComments = Prisma.ArticlesGetPayload<{
