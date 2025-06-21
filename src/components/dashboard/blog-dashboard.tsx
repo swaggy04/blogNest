@@ -1,7 +1,7 @@
 "use server"
 import Link from "next/link"
 import { Button } from "../ui/button"
-import { Clock, CrossIcon, FileText, MessageCircle, PlusCircle } from "lucide-react"
+import { Clock,  FileText, MessageCircle, PlusCircle } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
 import RecentArticle from "./recent-article"
 import { prisma } from "@/lib/prisma"
