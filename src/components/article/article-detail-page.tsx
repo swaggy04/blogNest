@@ -1,15 +1,16 @@
 "use client";
 
-import { Prisma } from "@/generated/prisma"
+
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 
+
+import { Prisma } from "@prisma/client";
 
 type Articledetailpageprops={
     article: Prisma.ArticlesGetPayload<{
         include: {
             author:{
                 select:{
-                   
                     name: true,
                     email: true,
                     imageUrl: true

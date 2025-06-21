@@ -1,12 +1,19 @@
-
 import { prisma } from '@/lib/prisma'
 import Image from 'next/image'
-import Link from 'next/link'
-import ViewAllArticlesButton from '@/components/ViewAllArticlesButton' // separate client component
-import { Avatar } from '../ui/avatar'
-import { AvatarFallback, AvatarImage } from '../ui/avatar'
+import ViewAllArticlesButton from '@/components/ViewAllArticlesButton'
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
+import { Prisma } from '@prisma/client'
+
+// // 1. Define the type for the articles with included relations
+// type ArticleWithAuthorAndComments = Prisma.ArticlesGetPayload<{
+//   include: {
+//     author: true
+//     comments: true
+//   }
+// }>
 
 const Toparticle = async () => {
+  // 2. Fetch data from Prisma
   const articles = await prisma.articles.findMany({
     orderBy: { createdAt: 'desc' },
     include: {
@@ -29,7 +36,7 @@ const Toparticle = async () => {
             Featured articles
           </h1>
           <p className="text-gray-700 dark:text-gray-300">
-            "Discover insights, stories, and ideas that spark curiosity and inspire change..."
+            Discover insights, stories, and ideas that spark curiosity and inspire change...
           </p>
         </div>
 
@@ -50,21 +57,23 @@ const Toparticle = async () => {
               </div>
               <div className="flex flex-col p-5 space-y-4">
                 <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src={article.author.imageUrl as string} />
-                  <AvatarFallback>
-                    {article.author.name.charAt(0)}
-                  </AvatarFallback>
-                </Avatar>
-                <span>{article.author.name}</span>
-              </div>
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={article.author.imageUrl || ''} />
+                    <AvatarFallback>
+                      {article.author.name?.charAt(0).toUpperCase()}
+                    </AvatarFallback>
+                  </Avatar>
+                  <span>{article.author.name}</span>
+                </div>
 
-                <h1 className="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-500">
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-500">
                   {article.title}
-                </h1>
+                </h2>
+
                 <p className="text-gray-700 dark:text-gray-300 line-clamp-2">
                   {article.category}
                 </p>
+
                 <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
                   <span>{new Date(article.createdAt).toDateString()}</span>
                 </div>
@@ -74,7 +83,7 @@ const Toparticle = async () => {
         </div>
       </div>
 
-      {/* Client-only view button */}
+      {/* Button for navigating to full blog list (Client Component) */}
       <ViewAllArticlesButton />
     </section>
   )
