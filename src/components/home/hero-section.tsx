@@ -28,6 +28,7 @@ export default function HeroSection() {
       {/* Background Blobs */}
       <div className="absolute top-0 inset-x-0 h-64 flex items-start z-0">
         <div className="h-24 w-2/3 bg-gradient-to-br from-blue-500 opacity-20 blur-2xl dark:from-[#170cac] dark:opacity-40" />
+       
         <div className="h-20 w-3/5 bg-gradient-to-r from-[#4232ce] opacity-30 blur-2xl dark:from-[#670ccf] dark:opacity-30" />
       </div>
 
@@ -46,7 +47,7 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-4 mt-10">
           {isSignedIn ? (
             <BounceButton>
-              <Link href="/dashboard">Let's get started</Link>
+              <Link href="/dashboard">Get started</Link>
             </BounceButton>
           ) : (
             <BounceButton>

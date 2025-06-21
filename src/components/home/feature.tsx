@@ -31,7 +31,7 @@ const Features = () => {
                                 Cross-platform app
                             </h2>
                             <p className="text-gray-700 dark:text-gray-300 text-sm hover:text-blue-600 dark:hover:text-blue-500">
-                                Access your blog anytime, anywhere. Whether you're on a desktop, tablet, or phone, your dashboard adapts seamlessly.
+                                Access your blog anytime, anywhere. Whether you are on a desktop, tablet, or phone, your dashboard adapts seamlessly.
                             </p>
                              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                                 Crowd-based insights
