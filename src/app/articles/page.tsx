@@ -1,4 +1,3 @@
-
 import {
   AllArticlesPage,
 } from "@/components/article/all-blogpage";
@@ -14,10 +13,17 @@ const ITEMS_PER_PAGE = 3;
 export default async function Page({
   searchParams,
 }: {
-  searchParams?: { search?: string; page?: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const searchText = searchParams?.search?.trim().toLowerCase() || "";
-  const currentPage = Number(searchParams?.page) || 1;
+  const rawSearch = searchParams?.search;
+  const rawPage = searchParams?.page;
+
+  const searchText =
+    typeof rawSearch === "string" ? rawSearch.trim().toLowerCase() : "";
+  const currentPage =
+    typeof rawPage === "string" && !isNaN(Number(rawPage))
+      ? Number(rawPage)
+      : 1;
 
   const skip = (currentPage - 1) * ITEMS_PER_PAGE;
   const take = ITEMS_PER_PAGE;
