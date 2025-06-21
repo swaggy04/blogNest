@@ -4,8 +4,7 @@ import {
 import ArticleSearchInput from "@/components/article/article-search-input";
 import { Button } from "@/components/ui/button";
 import React, { Suspense } from "react";
-import { Card } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+
 import { fetchArticleByQuery } from "@/lib/query/fetch-article";
 import Link from "next/link";
 import AllArticlesPageSkeleton from "@/components/article/aLL-articles-page-skeleton";
