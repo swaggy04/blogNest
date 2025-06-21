@@ -1,16 +1,8 @@
-import { prisma } from '@/lib/prisma'
+
 import Image from 'next/image'
 import ViewAllArticlesButton from '@/components/ViewAllArticlesButton'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-
-
-// // 1. Define the type for the articles with included relations
-// type ArticleWithAuthorAndComments = Prisma.ArticlesGetPayload<{
-//   include: {
-//     author: true
-//     comments: true
-//   }
-// }>
+import { prisma } from '@/lib/prisma'
 
 const Toparticle = async () => {
   // 2. Fetch data from Prisma

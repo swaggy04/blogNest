@@ -14,7 +14,7 @@ model User {
   name        String
   imageUrl    String?
   role        String?
-  articles    Articles[]
+  articles    Articles[] // A user can write multiple articles
   comments    Comment[]
   likes       Like[] // A user can like multiple articles
 }
