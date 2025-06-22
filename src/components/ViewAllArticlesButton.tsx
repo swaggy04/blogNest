@@ -1,3 +1,4 @@
+'use client';
 
 import { BounceButton } from '../components/ui/bounce-button';
 import { useUser } from '@clerk/nextjs';
