@@ -3,12 +3,17 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Menu, X } from "lucide-react";
-
 import Link from "next/link";
 
 import SearchInput from "./search-input";
 import { ModeToggle } from "@/components/ui/ModeToggle";
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,10 +23,13 @@ export function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Left Section - Logo & Desktop Navigation */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-2 sm:gap-8">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold">
+            <Link
+              href="/"
+              className="flex items-center space-x-1 sm:space-x-2 mr-2 sm:mr-0"
+            >
+              <span className="text-lg sm:text-2xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
                   Blog
                 </span>
@@ -59,12 +67,12 @@ export function Navbar() {
           </div>
 
           {/* Right Section - Search & Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {/* Search Bar (Desktop) */}
-            <SearchInput/>
+            <SearchInput />
 
             {/* Theme Toggle */}
-            <ModeToggle/>
+            <ModeToggle />
 
             {/* User Actions */}
             <SignedIn>
@@ -143,20 +151,6 @@ export function Navbar() {
                 Dashboard
               </Link>
             </div>
-
-            {/* Mobile Auth Buttons */}
-            {/* <SignedOut>
-              <div className="px-4 flex flex-col gap-2">
-                <SignInButton>
-                  <Button variant="outline" className="w-full">
-                    Login
-                  </Button>
-                </SignInButton>
-                <SignUpButton>
-                  <Button className="w-full">Sign up</Button>
-                </SignUpButton>
-              </div>
-            </SignedOut> */}
           </div>
         )}
       </div>
