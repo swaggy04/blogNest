@@ -10,18 +10,17 @@ import AllArticlesPageSkeleton from "@/components/article/aLL-articles-page-skel
 
 const ITEMS_PER_PAGE = 3;
 
-interface PageProps {
-  searchParams: Record<string, string | string[] | undefined>;
-}
-
-export default async function Page({ searchParams }: PageProps) {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
   const rawSearch = searchParams?.search;
   const rawPage = searchParams?.page ?? "";
 
   const searchText =
     typeof rawSearch === "string" ? rawSearch.trim().toLowerCase() : "";
 
-  // ✅ Clamp to minimum 1 to avoid negative skip
   const currentPage = Math.max(
     1,
     typeof rawPage === "string" && !isNaN(Number(rawPage))
@@ -55,18 +54,14 @@ export default async function Page({ searchParams }: PageProps) {
 
         {/* Pagination */}
         <div className="mt-12 flex justify-center gap-2">
-          <Link href={`?search=${searchText}&page=${currentPage - 1}`} passHref>
+          <Link href={`?search=${searchText}&page=${currentPage - 1}`}>
             <Button variant="ghost" size="sm" disabled={currentPage === 1}>
               ← Prev
             </Button>
           </Link>
 
           {Array.from({ length: totalPages }).map((_, index) => (
-            <Link
-              key={index}
-              href={`?search=${searchText}&page=${index + 1}`}
-              passHref
-            >
+            <Link key={index} href={`?search=${searchText}&page=${index + 1}`}>
               <Button
                 variant={currentPage === index + 1 ? "destructive" : "ghost"}
                 size="sm"
@@ -77,7 +72,7 @@ export default async function Page({ searchParams }: PageProps) {
             </Link>
           ))}
 
-          <Link href={`?search=${searchText}&page=${currentPage + 1}`} passHref>
+          <Link href={`?search=${searchText}&page=${currentPage + 1}`}>
             <Button
               variant="ghost"
               size="sm"
