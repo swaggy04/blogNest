@@ -11,8 +11,9 @@ import AllArticlesPageSkeleton from "@/components/article/aLL-articles-page-skel
 const ITEMS_PER_PAGE = 3;
 
 interface PageProps {
-  searchParams?: Record<string, string | string[]>;
+  searchParams: Record<string, string | string[] | undefined>;
 }
+
 
 export default async function Page({ searchParams }: PageProps) {
   const rawSearch = searchParams?.search;
