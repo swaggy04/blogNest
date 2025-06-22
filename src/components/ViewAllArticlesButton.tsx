@@ -1,6 +1,4 @@
-'use client';
 
-import Link from 'next/link';
 import { BounceButton } from '../components/ui/bounce-button';
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
