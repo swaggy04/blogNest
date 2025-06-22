@@ -8,11 +8,11 @@ import AllArticlesPageSkeleton from "@/components/article/aLL-articles-page-skel
 
 const ITEMS_PER_PAGE = 3;
 
-type PageProps = {
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-export default async function Page({ searchParams }: PageProps) {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined }
+}) {
   const rawSearch = searchParams?.search;
   const rawPage = searchParams?.page ?? "";
 
