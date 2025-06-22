@@ -1,6 +1,4 @@
-import {
-  AllArticlesPage,
-} from "@/components/article/all-blogpage";
+import { AllArticlesPage } from "@/components/article/all-blogpage";
 import ArticleSearchInput from "@/components/article/article-search-input";
 import { Button } from "@/components/ui/button";
 import React, { Suspense } from "react";
@@ -10,11 +8,11 @@ import AllArticlesPageSkeleton from "@/components/article/aLL-articles-page-skel
 
 const ITEMS_PER_PAGE = 3;
 
-export default async function Page({
-  searchParams,
-}: {
+type PageProps = {
   searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+};
+
+export default async function Page({ searchParams }: PageProps) {
   const rawSearch = searchParams?.search;
   const rawPage = searchParams?.page ?? "";
 
