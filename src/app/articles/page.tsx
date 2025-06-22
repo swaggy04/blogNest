@@ -16,7 +16,7 @@ interface PageProps {
 
 export default async function Page({ searchParams }: PageProps) {
   const rawSearch = searchParams?.search;
-  const rawPage = searchParams?.page;
+  const rawPage = searchParams?.page ??"";
 
   const searchText =
     typeof rawSearch === "string" ? rawSearch.trim().toLowerCase() : "";
