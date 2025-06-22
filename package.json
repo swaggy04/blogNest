@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.22.0",
-    "@prisma/client": "^6.9.0",
+    "@prisma/client": "^6.10.1",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
@@ -20,13 +20,13 @@
     "class-variance-authority": "^0.7.1",
     "cloudinary": "^2.7.0",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.515.0",
+    "lucide-react": "^0.522.0",
     "motion": "^12.18.1",
-    "next": "15.3.3",
+    "next": "^15.3.4",
     "next-cloudinary": "^6.16.0",
     "next-themes": "^0.4.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-quill-new": "^3.4.6",
     "tailwind-merge": "^3.3.1",
     "taos": "^1.0.5",
@@ -37,11 +37,11 @@
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.1",
     "@types/react": "^19.1.8",
-    "@types/react-dom": "^19",
+    "@types/react-dom": "^19.1.6",
     "autoprefixer": "^10.4.21",
     "daisyui": "^5.0.43",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.3",
+    "eslint": "^9.29.0",
+    "eslint-config-next": "^15.3.4",
     "postcss": "^8.5.6",
     "prisma": "^6.10.1",
     "tailwindcss": "^4.1.10",
@@ -49,6 +49,6 @@
     "typescript": "^5.8.3"
   },
   "engines": {
-    "node": "20.11.1"
+     "node": ">=20.11.1"
   }
 }
