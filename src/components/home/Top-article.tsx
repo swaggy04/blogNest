@@ -3,9 +3,9 @@ import Image from 'next/image'
 import ViewAllArticlesButton from '@/components/ViewAllArticlesButton'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { prisma } from '@/lib/prisma'
-
 const Toparticle = async () => {
-  // 2. Fetch data from Prisma
+ // 2. Fetch data from Prisma
+
   const articles = await prisma.articles.findMany({
     orderBy: { createdAt: 'desc' },
     include: {
@@ -75,8 +75,8 @@ const Toparticle = async () => {
         </div>
       </div>
 
-      {/* Button for navigating to full blog list (Client Component) */}
       <ViewAllArticlesButton />
+
     </section>
   )
 }

@@ -6,7 +6,7 @@ import { TypewriterEffect } from "../ui/typewriter-effect";
 import { BounceButton } from "@/components/ui/bounce-button";
 
 export default function HeroSection() {
-  const { isSignedIn } = useUser(); // 👈 Clerk hook
+  const { isSignedIn } = useUser(); 
 
   const words = [
     { text: "Fuel" },
